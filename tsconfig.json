@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // Используем ES модули
+    "moduleResolution": "node", // Разрешение модулей как в Node.js
+    "esModuleInterop": true, // Совместимость с CommonJS модулями
+    "resolveJsonModule": true, // Разрешение для импорта JSON файлов
+    "skipLibCheck": true,
+    "target": "ESNext", // Используем современные возможности JavaScript
+    "allowJs": true,
+    "strict": true,
+    "noEmit": true, // Не нужно компилировать файлы, используем ts-node
+    "baseUrl": ".",
+    "paths": {
+      "@backend/*": ["backend/src/*"]
+    }
+  }
+}
