@@ -5,34 +5,32 @@ import { generateToken } from "@backend/utils";
 import bcryptjs from "bcryptjs";
 import { z } from "zod";
 
-export const signup = async (
-  req: Request<{}, {}, User>,
-  res: Response
-): Promise<any> => {
+export const signup = async (req: Request<{}, {}, User>, res: Response) => {
   try {
-    const userSchema = z
-      .object({
-        fullname: z.string().min(1, "Full name is required"),
-        username: z.string().min(1, "Username is required"),
-        password: z
-          .string()
-          .min(6, "Password must be at least 6 characters long"),
-        confirmPassword: z
-          .string()
-          .min(6, "Confirm password must be at least 6 characters long"),
-        gender: z.enum(["male", "female"]),
-      })
-      .refine(({ password, confirmPassword }) => password === confirmPassword, {
-        message: "Passwords don't match",
-        path: ["password"],
-      })
-      .refine(({ gender }) => ["male", "female"].includes(gender), {
-        message: "Gender must be either 'male' or 'female",
-        path: ["gender"],
-      });
+    const userSchema = z.object({
+      fullname: z.string().min(1, "Full name is required"),
+      username: z.string().min(1, "Username is required"),
+      password: z
+        .string()
+        .min(6, "Password must be at least 6 characters long"),
+      confirmPassword: z
+        .string()
+        .min(6, "Confirm password must be at least 6 characters long"),
+      gender: z.enum(["male", "female"], {
+        message: "Invalid gender value, expected male or female",
+      }),
+    });
 
     const { success, error } = userSchema.safeParse(req.body);
     if (!success) {
+      if (req.body.password !== req.body.confirmPassword) {
+        error.issues.push({
+          message: "Passwords don't match",
+          path: ["confirmPassword"],
+          code: z.ZodIssueCode.custom,
+        });
+      }
+
       return res.status(400).json({ error: error.issues });
     }
 
