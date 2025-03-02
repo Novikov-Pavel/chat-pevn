@@ -26,7 +26,7 @@ export const signup = async (
         message: "Passwords don't match",
         path: ["password"],
       })
-      .refine(({ gender }) => !["male", "female"].includes(gender), {
+      .refine(({ gender }) => ["male", "female"].includes(gender), {
         message: "Gender must be either 'male' or 'female",
         path: ["gender"],
       });
