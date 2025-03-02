@@ -1,6 +1,6 @@
 import express from "express";
-import { Request, Response } from "express";
-import paths from "@backend/routes/paths.json";
+// import { Request, Response } from "express";
+import paths from "@backend/routes/paths";
 import routes from '@backend/routes';
 
 const app = express();

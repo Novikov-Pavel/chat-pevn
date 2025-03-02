@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "useUnknownInCatchVariables": false,
+
+    // Modules
+    "allowArbitraryExtensions": true,
+    "module": "ESNext", // Используем ES модули
+    "moduleResolution": "node", // Разрешение модулей как в Node.js
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "@backend/*": ["./src/*"]
+    },
+    "resolveJsonModule": true, // Разрешение для импорта JSON файлов
+    
+    // Emits
+    "noEmit": true, // Не нужно компилировать файлы, используем ts-node
+    "removeComments": true,
+    
+    "esModuleInterop": true, // Совместимость с CommonJS модулями
+    "skipLibCheck": true,
+    "target": "ESNext", // Используем современные возможности JavaScript
+  }
+}

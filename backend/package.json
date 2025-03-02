@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --watch backend/src --exec tsx backend/src/index.ts",
-    "watch:serve": "node --loader ts-node/esm backend/src/index.ts",
-    "build": "tsc && yarn && prisma generate --schema=./backend/prisma/schema.prisma && yarn --prefix frontend && yarn run build --prefix frontend"
+    "dev": "nodemon --watch src --exec tsx src/index.ts",
+    "build": "tsc && yarn && prisma generate --schema=./prisma/schema.prisma && yarn --prefix frontend && yarn run build --prefix frontend"
   },
   "type": "module",
   "keywords": [],
@@ -18,7 +17,6 @@
     "@types/express": "^5.0.0",
     "@types/jsonwebtoken": "^9.0.9",
     "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
     "tsx": "^4.19.3",
     "typescript": "^5.7.3"
   },

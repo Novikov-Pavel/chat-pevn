@@ -1,6 +1,0 @@
-{
-  "AUTH": "/auth",
-  "MESSAGES": "/messages",
-  "LOGIN": "/login",
-  "LOGOUT": "/logout"
-}
