@@ -3,6 +3,7 @@ enum paths {
   "MESSAGES" = "/messages",
   "LOGIN" = "/login",
   "LOGOUT" = "/logout",
+  "SIGNUP" = "/signup",
 }
 
 export default paths;
