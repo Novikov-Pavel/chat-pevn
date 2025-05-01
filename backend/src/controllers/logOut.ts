@@ -2,7 +2,7 @@ import { User } from "@prisma/client";
 import { Request, Response } from "express";
 
 export const logOut = async (
-  req: Request<{}, {}, User>,
+  _: Request<{}, {}, User>,
   res: Response
 ): Promise<void> => {
   try {
