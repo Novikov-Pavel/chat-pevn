@@ -1,6 +1,6 @@
 import express from "express";
 import paths from "@backend/routes/paths";
-import routes from "@backend/routes";
+import { auth, messages } from "@backend/routes";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
@@ -10,7 +10,8 @@ const app = express();
 app
   .use(cookieParser())
   .use(express.json())
-  .use(paths.AUTH, routes)
+  .use(paths.AUTH, auth)
+  .use(paths.MESSAGES, messages)
   .listen(5000, () => {
     console.log("Server is running on port 5000");
   });
