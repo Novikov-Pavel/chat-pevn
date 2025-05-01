@@ -1,5 +1,0 @@
-frontend/ export-ignore
-backend/ export-ignore
-.vscode/ export-ignore
-.gitignore export-ignore
-yarn.lock export-ignore

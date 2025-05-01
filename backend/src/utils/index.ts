@@ -1,1 +1,1 @@
-export { generateToken } from "./generateToken";
+export { generateToken } from "@backend/utils/generateToken";
